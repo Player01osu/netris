@@ -11,7 +11,7 @@ const
   #WindowWidth = 1920
   #WindowHeight = 1080
   FPS: float = 60.0
-  Frame = 0.020
+  Frame = 100.0
 
   GridWinScale = 0.9
   TileInnerPad = cint(3.0 * GridWinScale * 0.0)
@@ -464,10 +464,10 @@ proc updatePiece(game: Game, dt: float32) =
   if game.workingPiece.dt >= Frame: discard updatePieceDown(game)
 
 func isArr(player: Player): bool =
-  player.arrTime * 72000000.0 > player.arr.float32()
+  player.arrTime * 1000 > player.arr.float32()
 
 func isDas(player: Player): bool =
-  player.dasTime * 72000000.0 > player.das.float32()
+  player.dasTime * 1000 > player.das.float32()
 
 proc time(player: Player, dt: float32) =
   player.arrTime += dt
@@ -559,7 +559,7 @@ proc main() =
     previousCounter: uint64 = 0
 
   while running:
-    dt = (counter - previousCounter).float() / getPerformanceCounter().float()
+    dt = (counter - previousCounter).float() / getPerformanceFrequency().float()
     previousCounter = counter
     counter = getPerformanceCounter()
 
