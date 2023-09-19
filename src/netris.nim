@@ -11,7 +11,7 @@ const
   #WindowWidth = 1920
   #WindowHeight = 1080
   FPS: float = 60.0
-  Frame = 0.009
+  Frame = 0.020
 
   GridWinScale = 0.9
   TileInnerPad = cint(3.0 * GridWinScale * 0.0)
@@ -391,7 +391,7 @@ func info(piece: Piece): PieceInfo =
   setPos(piece, pieceInfo)
 
 proc shadowPiece(piece: Piece, game: Game): Piece =
-  var sp = deepCopy piece
+  var sp = Piece(pos: piece.pos, rotation: piece.rotation, kind: piece.kind)
   while sp.translate(game, dy = 1): discard
   sp
 

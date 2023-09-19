@@ -2,4 +2,4 @@
 
 set -xe
 
-nimble run --deepcopy:on --colors:off -d:release --verbose
+nimble run --colors:off -d:release --verbose
