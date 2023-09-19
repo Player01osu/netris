@@ -3,4 +3,4 @@
 
 Tetris written in Nim.
 
-[example.webm](./assets/example.webm)
+[example.mp4](./assets/example.mp4)
