@@ -555,8 +555,8 @@ proc main() =
     game = initGame()
     dt: float32 = 0
 
-    counter: uint64 = 0
-    previousCounter: uint64 = 0
+    counter: uint64 = getPerformanceCounter()
+    previousCounter: uint64 = counter
 
   while running:
     dt = (counter - previousCounter).float() / getPerformanceFrequency().float()
